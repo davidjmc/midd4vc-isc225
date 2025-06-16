@@ -44,7 +44,7 @@ def run_vehicle(vehicle_id):
         vc.stop()
 
 if __name__ == "__main__":
-    vehicle_ids = [f"veh{i}" for i in range(1, 6)]  # 500 vehicles
+    vehicle_ids = [f"veh{i}" for i in range(1, 6)]  # x vehicles
     threads = []
 
     for vid in vehicle_ids:
