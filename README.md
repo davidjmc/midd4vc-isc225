@@ -1,89 +1,91 @@
 <h1 align="center">Midd4VC: A Middleware for Vehicular Cloud Computing</h1>
 
-## 📝 Índice <a name="summary"></a>
+## 📝 Summary <a name="summary"></a>
 
 - [📖 About](#about)
 - [🏁 Getting Started](#getting_started)
-- [📱 Executing](#usage)
-- [⛏️ Tecnologias Utilizadas](#built_using)
+- [📱 Usage](#usage)
+- [⛏️ Technologies Used](#built_using)
 
-## 📖 Midd4VC <a name = "about"></a>
+## 📖 About <a name = "about"></a>
+
+Midd4VC (Middleware for Vehicular Cloud) is a lightweight and extensible middleware designed to support the creation and management of vehicular clouds. It mediates communication between vehicles and VCC entities (e.g., application clients and roadside units), distributing and coordinating jobs among them. The current implementation adopts MQTT (Message Queuing Telemetry Transport), a widely used lightweight messaging protocol~\cite{Cavalcanti:2021}, and includes mechanisms for reconnection, message handling, and concurrent job execution.
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
-Estas instruções irão ajudá-lo a obter uma cópia deste projeto e executá-lo em sua máquina local para fins de desenvolvimento e teste.
+These instructions will help you get a copy of this project and run it on your local machine for development and testing purposes.
 
-Clone este repositório em sua máquina local:
-
-```bash
-git clone https://github.com/davidjmc/Midd4VC.git
-```
-
-Entre no diretório do projeto:
+Clone this repository to your local machine:
 
 ```bash
-cd Midd4VC
+git clone https://github.com/davidjmc/midd4vc-isc225.git
 ```
 
-Este software foi desenvolvido para ser executado em um ambiente Linux.
+Navigate into the project directory:
 
-### Pré-requisitos
+```bash
+cd midd4vc-isc225
+```
 
-Caso deseje utilizar o Docker, siga diretamente para a seção [Docker](#docker). Caso contrário, continue com as instruções abaixo.
+This software was developed to run in a Linux environment.
 
-Para executar o projeto, você precisará ter o Node.js e o npm instalados em sua máquina. Você pode baixar o Node.js [aqui](https://nodejs.org/) ou através do comando abaixo:
+### Prerequisites
+
+To run the project, you will need to have Python3 and pip3 installed on your machine. You can download Python3 [here](https://www.python.org/) or install it using the following commands:
 
 ```bash
 # Gerenciador de versões do Node.js:
-curl -o- https://fnm.vercel.app/install | bash
-
-# Baixar e instalar o Node.js:
-fnm install 22.14.0
-
-# Definir a versão do Node.js:
-fnm use 22.14.0
+sudo apt install python3 python3-pip
 ```
 
-Adicionalmente, instale os pacotes necessários para gerar os gráficos:
+Additionally, install the EMQX:
 
 ```bash
-sudo apt-get install build-essential libcairo2-dev libpango1.0-dev libjpeg-dev libgif-dev librsvg2-dev
+todo
 ```
 
 ### Instalação
 
-Após clonar o repositório, entre no diretório do projeto e instale as dependências:
+After cloning the repository, enter the project directory and install the dependencies:
 
 ```bash
-npm install
+pip3 install paho-mqtt==1.6.1
 ```
 
-### Clientes
-
-Siga as instruções para configurar o(s) [cliente(s)](https://github.com/MalwareDataLab/autodroid-watcher-client) na máquina onde o [AutoDroid Worker](https://github.com/MalwareDataLab/autodroid-worker) está instalado.
-
-## 📱 Utilização <a name="usage"></a>
+## 📱 Usage <a name="usage"></a>
 
 Certifique-se de que o túnel HTTP esteja operacional e o(s) [cliente(s)](https://github.com/MalwareDataLab/autodroid-watcher-client) estejam configurados para enviar os dados para a URL que foi gerada ao executar o túnel.
 
-### Executando o Servidor
+### Running the Server
 
-Para executar o servidor, utilize o comando abaixo:
+To run the server, use the command below:
 
 ```bash
-npm run dev -q 10 -p 3000 -e prod -i 1 -t "secure_token" --email john@doe.com --password "123456"
+cd  server/
+
+python3 Midd4VCServer.py
 ```
 
-### Resultados
+### Running the Client
 
-Os resultados são armazenados na pasta `experiments` e são organizados por data e hora. Cada iteração é armazenada em um arquivo separado.
+To run the client, use the command below:
 
-Os resultados dos experimentos são armazenados em arquivos CSV e gráficos, que podem ser utilizados para análise e visualização dos dados coletados, uma amostra de uma iteração completa está disponível na [pasta `examples`](https://github.com/MalwareDataLab/autodroid-watcher-server/tree/main/docs/examples) deste repositório.
+```bash
+cd  client/
 
-## ⛏️ Tecnologias Utilizadas <a name = "built_using"></a>
+# To run vehicle node, use:
+python3 vehicle.py
 
-- [TypeScript](https://www.typescriptlang.org/) - Linguagem de programação
-- [Node.js](https://nodejs.org/) - Ambiente de execução
-- [Axios](https://axios-http.com/) - Cliente HTTP
-- [Chart.js](https://www.chartjs.org/) - Biblioteca de gráficos
-- [Socket.io](https://socket.io/) - Biblioteca para comunicação em tempo real
+# To run application clientm, use:
+python3 application.py
+```
+
+### Results
+
+OThe results are stored in the `evaluation`. The experiment results are saved as CSV files and charts, which can be used for analysis and data visualization.
+
+## ⛏️ Technologies Used <a name = "built_using"></a>
+
+- [Python3](https://www.python.org/) - Programming language
+- [EMQX](https://www.emqx.com/en) - MQTT messaging platform
+- [Paho MQTT](https://pypi.org/project/paho-mqtt/) - MQTT Client
