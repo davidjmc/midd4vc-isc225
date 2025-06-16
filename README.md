@@ -9,7 +9,7 @@
 
 ## 📖 About <a name = "about"></a>
 
-Midd4VC (Middleware for Vehicular Cloud) is a lightweight and extensible middleware designed to support the creation and management of vehicular clouds. It mediates communication between vehicles and VCC entities (e.g., application clients and roadside units), distributing and coordinating jobs among them. The current implementation adopts MQTT (Message Queuing Telemetry Transport), a widely used lightweight messaging protocol, and includes mechanisms for reconnection, message handling, and concurrent job execution.
+Midd4VC (Middleware for Vehicular Cloud) is a lightweight and extensible middleware designed to support the creation and management of vehicular clouds. It mediates communication between vehicles and Vehicular Cloud Computing entities (e.g., application clients and roadside units), distributing and coordinating jobs among them. The current implementation adopts MQTT (Message Queuing Telemetry Transport), a widely used lightweight messaging protocol, and includes mechanisms for reconnection, message handling, and concurrent job execution.
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
