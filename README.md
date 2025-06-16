@@ -34,17 +34,24 @@ This software was developed to run in a Linux environment.
 To run the project, you will need to have Python3 and pip3 installed on your machine. You can download Python3 [here](https://www.python.org/) or install it using the following commands:
 
 ```bash
-# Gerenciador de versões do Node.js:
+# Install Python and pip:
 sudo apt install python3 python3-pip
 ```
 
 Additionally, install the EMQX:
 
 ```bash
-todo
+# Install the EMQX apt repository:
+curl -s https://packagecloud.io/install/repositories/emqx/emqx-enterprise5/script.deb.sh | sudo bash
+
+# Install EMQX:
+sudo apt-get install emqx
+
+# Start EMQX:
+sudo systemctl start emqx
 ```
 
-### Instalação
+### Installation
 
 After cloning the repository, enter the project directory and install the dependencies:
 
@@ -54,7 +61,7 @@ pip3 install paho-mqtt==1.6.1
 
 ## 📱 Usage <a name="usage"></a>
 
-Certifique-se de que o túnel HTTP esteja operacional e o(s) [cliente(s)](https://github.com/MalwareDataLab/autodroid-watcher-client) estejam configurados para enviar os dados para a URL que foi gerada ao executar o túnel.
+Make sure the EMQX broker is running.
 
 ### Running the Server
 
@@ -82,7 +89,7 @@ python3 application.py
 
 ### Results
 
-OThe results are stored in the `evaluation`. The experiment results are saved as CSV files and charts, which can be used for analysis and data visualization.
+The results are stored in the `evaluation`. The experiment results were saved as CSV files and charts as pdf, which can be used for analysis and data visualization.
 
 ## ⛏️ Technologies Used <a name = "built_using"></a>
 
